@@ -1,0 +1,5 @@
+---
+# handlers file for common
+
+- name: Restart firewalld
+  systemd: name=firewalld state=restarted

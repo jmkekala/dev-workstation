@@ -1,0 +1,5 @@
+---
+# tasks file for packages
+- include: basic.yml
+- include: development.yml
+- include: desktop_environment.yml

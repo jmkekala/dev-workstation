@@ -1,0 +1,20 @@
+# Install Mate Desktop environment with XRDP support
+- name: Install Mate Desktop
+  yum: 
+    name: "@^mate-desktop-environment"
+    state: present
+
+- name: Install Libreoffice
+  yum: 
+    name: "libreoffice"
+    state: present
+
+- name: Install XRDP Service
+  yum: name=xrdp state=present
+
+- name: Configure XRDP Service
+  lineinfile:
+    dest: /etc/xrdp/startwm.sh
+    regexp: '/etc/X11/xinit/Xsession$'
+    line: '    mate-session'
+  notify: Start XRDP Service

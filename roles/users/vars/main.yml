@@ -1,0 +1,4 @@
+---
+# vars file for users
+users: 
+  - {name: jmkekala, groups: wheel}

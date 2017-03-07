@@ -1,0 +1,9 @@
+---
+- name: Setup Development Workstation
+  hosts: all
+  user: root
+  roles: 
+    - common
+    - users
+    - repositories
+    - packages

@@ -1,0 +1,12 @@
+---
+# handlers file for packages
+- name: Start XRDP Service
+  systemd: state=started name=xrdp enabled=yes
+  notify: Open ports for XRDP
+
+- name: Open ports for XRDP
+  firewalld: port=3389/{{ item }} permanent=true state=enabled zone=public
+  with_items:
+    - tcp
+    - udp
+  notify: Restart firewalld

@@ -1,0 +1,9 @@
+---
+# Install Development Tools
+- name: Install Development Tools
+  yum: name="@Development tools" state=present
+
+- name: Install Python packages
+  yum: name={{ item }} state=present
+  with_items:
+    - python2-pip

@@ -1,0 +1,7 @@
+---
+# Add Extra Packages for Enterprise Linux repository
+- name: Add EPEL repository
+  yum:
+    name: epel-release
+    state: latest
+    update_cache: yes
