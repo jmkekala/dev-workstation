@@ -7,3 +7,5 @@
     - net-tools
     - elinks
     - telnet
+    - screen
+    - tmux
