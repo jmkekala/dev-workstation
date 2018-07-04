@@ -20,3 +20,9 @@
     line: '    mate-session'
   when: xrdp
   notify: Start XRDP Service
+
+- name: Install additional packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - terminus-fonts
+
