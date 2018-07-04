@@ -11,10 +11,12 @@
 
 - name: Install XRDP Service
   yum: name=xrdp state=present
+  when: xrdp
 
 - name: Configure XRDP Service
   lineinfile:
     dest: /etc/xrdp/startwm.sh
     regexp: '/etc/X11/xinit/Xsession$'
     line: '    mate-session'
+  when: xrdp
   notify: Start XRDP Service

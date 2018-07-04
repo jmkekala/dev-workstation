@@ -1,9 +1,16 @@
 ---
 - name: Setup Development Workstation
-  hosts: all
-  user: root
+  connection: local
+  become: yes
+  hosts: 127.0.0.1
+
+  pre_tasks:
+    - name: Do we wish to install xrdp
+      set_fact:
+        xrdp: false
+
   roles: 
     - common
-    - users
-    - repositories
     - packages
+    # - users
+    #- repositories
