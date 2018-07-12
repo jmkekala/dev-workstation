@@ -1,0 +1,18 @@
+---
+# Install kvm packages
+- name: Install kvm packages
+  yum: name={{ item }} state=latest
+  with_items:
+      - qemu-kvm 
+      - qemu-img 
+      - virt-manager
+      - libvirt
+      - libvirt-python
+      - libvirt-client
+      - virt-install 
+
+- name: enable libvirtd
+  systemd:
+    state: started
+    enabled: yes
+    name: libvirtd
